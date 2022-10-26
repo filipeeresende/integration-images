@@ -1,0 +1,15 @@
+C:\Users\Filipe\Documents\projetos\projetos pessoais\CrudBonifiQ\BonifiQApplication\BonifiQ.Infrastructure\bin\Debug\net6.0\BonifiQ.Infrastructure.deps.json
+C:\Users\Filipe\Documents\projetos\projetos pessoais\CrudBonifiQ\BonifiQApplication\BonifiQ.Infrastructure\bin\Debug\net6.0\BonifiQ.Infrastructure.dll
+C:\Users\Filipe\Documents\projetos\projetos pessoais\CrudBonifiQ\BonifiQApplication\BonifiQ.Infrastructure\bin\Debug\net6.0\BonifiQ.Infrastructure.pdb
+C:\Users\Filipe\Documents\projetos\projetos pessoais\CrudBonifiQ\BonifiQApplication\BonifiQ.Infrastructure\obj\Debug\net6.0\BonifiQ.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Filipe\Documents\projetos\projetos pessoais\CrudBonifiQ\BonifiQApplication\BonifiQ.Infrastructure\obj\Debug\net6.0\BonifiQ.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Filipe\Documents\projetos\projetos pessoais\CrudBonifiQ\BonifiQApplication\BonifiQ.Infrastructure\obj\Debug\net6.0\BonifiQ.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Filipe\Documents\projetos\projetos pessoais\CrudBonifiQ\BonifiQApplication\BonifiQ.Infrastructure\obj\Debug\net6.0\BonifiQ.Infrastructure.AssemblyInfo.cs
+C:\Users\Filipe\Documents\projetos\projetos pessoais\CrudBonifiQ\BonifiQApplication\BonifiQ.Infrastructure\obj\Debug\net6.0\BonifiQ.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Filipe\Documents\projetos\projetos pessoais\CrudBonifiQ\BonifiQApplication\BonifiQ.Infrastructure\obj\Debug\net6.0\BonifiQ.Infrastructure.dll
+C:\Users\Filipe\Documents\projetos\projetos pessoais\CrudBonifiQ\BonifiQApplication\BonifiQ.Infrastructure\obj\Debug\net6.0\refint\BonifiQ.Infrastructure.dll
+C:\Users\Filipe\Documents\projetos\projetos pessoais\CrudBonifiQ\BonifiQApplication\BonifiQ.Infrastructure\obj\Debug\net6.0\BonifiQ.Infrastructure.pdb
+C:\Users\Filipe\Documents\projetos\projetos pessoais\CrudBonifiQ\BonifiQApplication\BonifiQ.Infrastructure\obj\Debug\net6.0\ref\BonifiQ.Infrastructure.dll
+C:\Users\Filipe\Documents\projetos\projetos pessoais\CrudBonifiQ\BonifiQApplication\BonifiQ.Infrastructure\bin\Debug\net6.0\BonifiQ.Domain.dll
+C:\Users\Filipe\Documents\projetos\projetos pessoais\CrudBonifiQ\BonifiQApplication\BonifiQ.Infrastructure\bin\Debug\net6.0\BonifiQ.Domain.pdb
+C:\Users\Filipe\Documents\projetos\projetos pessoais\CrudBonifiQ\BonifiQApplication\BonifiQ.Infrastructure\obj\Debug\net6.0\BonifiQ.Infrastructure.csproj.CopyComplete

@@ -1,0 +1,14 @@
+C:\Users\Filipe\Documents\projetos\projetos pessoais\CrudBonifiQ\BonifiQApplication\BonifiQ.Domain\bin\Debug\net6.0\BonifiQ.Domain.deps.json
+C:\Users\Filipe\Documents\projetos\projetos pessoais\CrudBonifiQ\BonifiQApplication\BonifiQ.Domain\bin\Debug\net6.0\BonifiQ.Domain.runtimeconfig.json
+C:\Users\Filipe\Documents\projetos\projetos pessoais\CrudBonifiQ\BonifiQApplication\BonifiQ.Domain\bin\Debug\net6.0\BonifiQ.Domain.dll
+C:\Users\Filipe\Documents\projetos\projetos pessoais\CrudBonifiQ\BonifiQApplication\BonifiQ.Domain\bin\Debug\net6.0\BonifiQ.Domain.pdb
+C:\Users\Filipe\Documents\projetos\projetos pessoais\CrudBonifiQ\BonifiQApplication\BonifiQ.Domain\obj\Debug\net6.0\BonifiQ.Domain.csproj.AssemblyReference.cache
+C:\Users\Filipe\Documents\projetos\projetos pessoais\CrudBonifiQ\BonifiQApplication\BonifiQ.Domain\obj\Debug\net6.0\BonifiQ.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Filipe\Documents\projetos\projetos pessoais\CrudBonifiQ\BonifiQApplication\BonifiQ.Domain\obj\Debug\net6.0\BonifiQ.Domain.AssemblyInfoInputs.cache
+C:\Users\Filipe\Documents\projetos\projetos pessoais\CrudBonifiQ\BonifiQApplication\BonifiQ.Domain\obj\Debug\net6.0\BonifiQ.Domain.AssemblyInfo.cs
+C:\Users\Filipe\Documents\projetos\projetos pessoais\CrudBonifiQ\BonifiQApplication\BonifiQ.Domain\obj\Debug\net6.0\BonifiQ.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Filipe\Documents\projetos\projetos pessoais\CrudBonifiQ\BonifiQApplication\BonifiQ.Domain\obj\Debug\net6.0\BonifiQ.Domain.dll
+C:\Users\Filipe\Documents\projetos\projetos pessoais\CrudBonifiQ\BonifiQApplication\BonifiQ.Domain\obj\Debug\net6.0\refint\BonifiQ.Domain.dll
+C:\Users\Filipe\Documents\projetos\projetos pessoais\CrudBonifiQ\BonifiQApplication\BonifiQ.Domain\obj\Debug\net6.0\BonifiQ.Domain.pdb
+C:\Users\Filipe\Documents\projetos\projetos pessoais\CrudBonifiQ\BonifiQApplication\BonifiQ.Domain\obj\Debug\net6.0\BonifiQ.Domain.genruntimeconfig.cache
+C:\Users\Filipe\Documents\projetos\projetos pessoais\CrudBonifiQ\BonifiQApplication\BonifiQ.Domain\obj\Debug\net6.0\ref\BonifiQ.Domain.dll

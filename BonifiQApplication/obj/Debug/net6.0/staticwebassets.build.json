@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "A2hBodvfsn9DHVEt5jQWf0m2v9V2anSSeeWJCgm22A0=",
+  "Source": "BonifiQ.Application",
+  "BasePath": "_content/BonifiQ.Application",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
