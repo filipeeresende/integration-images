@@ -15,7 +15,7 @@ namespace BonifiQ.Application.v1.Controller
             _albumService = albumService;
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}/photos")]
         public async Task<IActionResult> GetAlbumPhotosByAlbumId(int id)
         {
             return Ok(await _albumService.GetAlbumPhotosByAlbumId(id));

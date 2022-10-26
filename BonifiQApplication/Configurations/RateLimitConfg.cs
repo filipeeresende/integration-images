@@ -27,7 +27,7 @@ namespace BonifiQ.Application.Configurations
             },
              new RateLimitRule
             {
-                Endpoint = "GET:/v1/Album",
+                Endpoint = "GET:*/v1/album/*/photos",
                 Period = "1m",
                 Limit = 10,
             }
