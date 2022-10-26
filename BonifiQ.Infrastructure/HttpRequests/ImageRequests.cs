@@ -18,33 +18,33 @@ namespace BonifiQ.Infrastructure.CrossTalk
             _endpoint = _configuration.GetValue<string>(AppSettingsConstants.EndPointUrl);
         }
 
-        public async Task<PhotoResponse> GetPhotoById(int id)
+        public async Task<PhotoApiResponse> GetPhotoById(int id)
         {
-            PhotoResponse photo = null;
+            PhotoApiResponse photo = null;
 
-            using (var cliente = new RestClient(_endpoint)) //colocar no app settings
+            using (var cliente = new RestClient(_endpoint)) 
             {
                 var request = new RestRequest($"{HttpRequestsConstants.Photos}/{id}", Method.Get);
                 var response = await cliente.ExecuteAsync(request);
 
                 if (response.IsSuccessStatusCode)
-                    photo = JsonConvert.DeserializeObject<PhotoResponse>(response.Content);
+                    photo = JsonConvert.DeserializeObject<PhotoApiResponse>(response.Content);
             }
 
             return photo;
         }
 
-        public async Task<List<PhotoResponse>> GetAllPhotosByAlbumId(int id)
+        public async Task<List<PhotoApiResponse>> GetAllPhotosByAlbumId(int id)
         {
-            List<PhotoResponse> photo = null;
+            List<PhotoApiResponse> photo = null;
 
-            using (var cliente = new RestClient("https://jsonplaceholder.typicode.com/"))
+            using (var cliente = new RestClient(_endpoint))
             {
                 var request = new RestRequest($"{HttpRequestsConstants.albums}/{id}/{HttpRequestsConstants.Photos}", Method.Get);
                 var response = await cliente.ExecuteAsync(request);
 
                 if (response.IsSuccessStatusCode)
-                    photo = JsonConvert.DeserializeObject<List<PhotoResponse>>(response.Content);
+                    photo = JsonConvert.DeserializeObject<List<PhotoApiResponse>>(response.Content);
             }
             return photo;
         }

@@ -29,6 +29,7 @@ namespace BonifiQ.Application
         {
             app.UseDeveloperExceptionPage();
             app.UseHsts();
+            app.UseExceptionHandler("/error");
             app.UseStaticFiles();
             app.UseIpRateLimiting();
             app.UseWebApiConfiguration(MyAllowSpecificOrigins);

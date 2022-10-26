@@ -32,9 +32,9 @@ namespace BonifQ.Tests.Repositories
             };
         }
 
-        public static PhotoResponse GetPhotoResponseObjectMock()
+        public static PhotoApiResponse GetPhotoResponseObjectMock()
         {
-            return new PhotoResponse
+            return new PhotoApiResponse
             {
                 Id = 1,
                 AlbumId = 2,
