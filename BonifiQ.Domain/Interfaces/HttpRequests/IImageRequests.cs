@@ -4,7 +4,7 @@ namespace BonifiQ.Domain.Interfaces.CrossTalk
 {
     public interface IImageRequests
     {
-        Task<PhotoResponse> GetPhotoById(int id);
-        Task<List<PhotoResponse>> GetAllPhotosByAlbumId(int id);
+        Task<PhotoApiResponse> GetPhotoById(int id);
+        Task<List<PhotoApiResponse>> GetAllPhotosByAlbumId(int id);
     }
 }

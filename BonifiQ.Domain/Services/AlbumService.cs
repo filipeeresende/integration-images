@@ -3,6 +3,7 @@ using BonifiQ.Domain.Entities;
 using BonifiQ.Domain.Interfaces.CrossTalk;
 using BonifiQ.Domain.Interfaces.Repositories;
 using BonifiQ.Domain.Interfaces.services;
+using BonifiQ.Domain.Settings.ErrorHandler.ErrorStatusCodes;
 using BonifiQ.Domain.Utils;
 
 namespace BonifiQ.Domain.Services
@@ -17,9 +18,9 @@ namespace BonifiQ.Domain.Services
             _imageRepository = imageRepository;
         }
 
-        public async Task<IList<Photo>> GetAlbumPhotosByAlbumId(int id)
+        public async Task<IList<PhotoResponse>> GetAlbumPhotosByAlbumId(int id)
         {
-            var photoAlbum = new List<Photo>(); //vai virar DTO
+            var photoAlbum = new List<PhotoResponse>(); 
 
             IList<Photo> photos = await _imageRepository.GetAlbumPhotosByAlbumIdAsync(id);
 
@@ -27,32 +28,34 @@ namespace BonifiQ.Domain.Services
             {
                 if (DateTime.Now.Subtract(photo.DateIncluded.Value).TotalMinutes > 10)
                 {
-                    PhotoResponse updatedPhoto = await _httpRequest.GetPhotoById(photo.Id);
+                    PhotoApiResponse updatedPhoto = await _httpRequest.GetPhotoById(photo.Id);
 
                     PhotoUtils.UpdateExistingPhoto(updatedPhoto, photo);
 
                     await _imageRepository.CommitChangesAsync();
 
-                    photoAlbum.Add(photo);
+                    photoAlbum.Add(PhotoUtils.MapReturn(photo));
                 }
             }
 
             if (!photos.Any())
             {
-                List<PhotoResponse> updatedPhotos = await _httpRequest.GetAllPhotosByAlbumId(id);
+                List<PhotoApiResponse> updatedPhotos = await _httpRequest.GetAllPhotosByAlbumId(id);
 
-                foreach (PhotoResponse photo in updatedPhotos)
+                if (updatedPhotos.Count == 0)
+                    throw new NotFoundException("Este album não foi encontrado");
+
+                foreach (PhotoApiResponse photo in updatedPhotos)
                 {
                     Photo newPhoto = PhotoUtils.AddNewPhoto(photo);
 
                     await _imageRepository.InsertPhotoAsync(newPhoto);
 
-                    photoAlbum.Add(newPhoto);
+                    photoAlbum.Add(PhotoUtils.MapReturn(newPhoto));
                 }
 
                 await _imageRepository.CommitChangesAsync();
             }
-
             return photoAlbum;
         }
     }

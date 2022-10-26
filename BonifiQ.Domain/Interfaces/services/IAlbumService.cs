@@ -1,9 +1,10 @@
-﻿using BonifiQ.Domain.Entities;
+﻿using BonifiQ.Domain.Dto;
+using BonifiQ.Domain.Entities;
 
 namespace BonifiQ.Domain.Interfaces.services
 {
     public interface IAlbumService
     {
-        Task<IList<Photo>> GetAlbumPhotosByAlbumId(int id);
+        Task<IList<PhotoResponse>> GetAlbumPhotosByAlbumId(int id);
     }
 }

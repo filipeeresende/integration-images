@@ -3,6 +3,7 @@ using BonifiQ.Domain.Entities;
 using BonifiQ.Domain.Interfaces.CrossTalk;
 using BonifiQ.Domain.Interfaces.Repositories;
 using BonifiQ.Domain.Interfaces.services;
+using BonifiQ.Domain.Settings.ErrorHandler.ErrorStatusCodes;
 using BonifiQ.Domain.Utils;
 
 namespace BonifiQ.Domain.Services
@@ -17,7 +18,7 @@ namespace BonifiQ.Domain.Services
             _httpRequest = httpRequest;
         }
 
-        public async Task<Photo> GetPhotoById(int id)
+        public async Task<PhotoResponse> GetPhotoById(int id)
         {
             Photo photo = await _photosRepository.GetPhotoByIdAsync(id);
 
@@ -25,30 +26,29 @@ namespace BonifiQ.Domain.Services
             {
                 if (DateTime.Now.Subtract(photo.DateIncluded.Value).TotalHours > 24)
                 {
-                    PhotoResponse updatedPhoto = await _httpRequest.GetPhotoById(id);
+                    PhotoApiResponse updatedPhoto = await _httpRequest.GetPhotoById(id);
 
                     PhotoUtils.UpdateExistingPhoto(updatedPhoto, photo);
 
                     await _photosRepository.CommitChangesAsync();
                 }
 
-                return photo;
+                 return PhotoUtils.MapReturn(photo);
             }
 
-            PhotoResponse apiPhoto = await _httpRequest.GetPhotoById(id);
+            PhotoApiResponse apiPhoto = await _httpRequest.GetPhotoById(id);
 
-            if (apiPhoto != null)
-            {
+            if (apiPhoto == null)
+                throw new NotFoundException("Esta imagem não foi encontrada");
+
                 Photo newPhoto = PhotoUtils.AddNewPhoto(apiPhoto);
 
                 await _photosRepository.InsertPhotoAsync(newPhoto);
 
                 await _photosRepository.CommitChangesAsync();
 
-                return newPhoto;
-            }
+                return PhotoUtils.MapReturn(newPhoto);
 
-            return null;
         }
     }
 }

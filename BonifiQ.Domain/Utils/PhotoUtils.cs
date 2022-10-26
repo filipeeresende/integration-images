@@ -5,7 +5,7 @@ namespace BonifiQ.Domain.Utils
 {
     public static class PhotoUtils
     {
-        public static void UpdateExistingPhoto(PhotoResponse updatedPhoto, Photo photo)
+        public static void UpdateExistingPhoto(PhotoApiResponse updatedPhoto, Photo photo)
         {
             photo.ThumbnailUrl = updatedPhoto.ThumbnailUrl;
             photo.AlbumId = updatedPhoto.AlbumId;
@@ -14,7 +14,7 @@ namespace BonifiQ.Domain.Utils
             photo.Title = updatedPhoto.Title;
         }
 
-        public static Photo AddNewPhoto(PhotoResponse updatedPhoto)
+        public static Photo AddNewPhoto(PhotoApiResponse updatedPhoto)
         {
             return new Photo
             {
@@ -24,6 +24,18 @@ namespace BonifiQ.Domain.Utils
                 Url = updatedPhoto.Url,
                 ThumbnailUrl = updatedPhoto.ThumbnailUrl,
                 DateIncluded = DateTime.Now
+            };
+        }
+        public static PhotoResponse MapReturn(Photo photo)
+        {
+            return new PhotoResponse
+            {
+                Id = photo.Id,
+                AlbumId = photo.AlbumId,
+                Title = photo.Title,
+                Url = photo.Url,
+                ThumbnailUrl = photo.ThumbnailUrl,
+
             };
         }
     }
