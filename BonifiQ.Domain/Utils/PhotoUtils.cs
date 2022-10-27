@@ -38,5 +38,27 @@ namespace BonifiQ.Domain.Utils
 
             };
         }
+
+        public static IList<PhotoResponse> MapReturnList(IList<Photo> photos)
+        {
+            var response = new List<PhotoResponse>();
+
+            foreach (Photo photo in photos)
+            {
+                var newPhotoResponse = new PhotoResponse
+                {
+                    Id = photo.Id,
+                    AlbumId = photo.AlbumId,
+                    Title = photo.Title,
+                    Url = photo.Url,
+                    ThumbnailUrl = photo.ThumbnailUrl,
+
+                };
+
+                response.Add(newPhotoResponse);
+            }
+
+            return response;
+        }
     }
 }

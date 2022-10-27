@@ -4,6 +4,7 @@ using BonifiQ.Domain.Interfaces.CrossTalk;
 using BonifiQ.Domain.Interfaces.Repositories;
 using BonifiQ.Domain.Interfaces.services;
 using BonifiQ.Domain.Services;
+using BonifiQ.Domain.Settings.ErrorHandler.ErrorStatusCodes;
 using BonifQ.Tests.Repositories;
 using Moq;
 using System.Threading.Tasks;
@@ -27,38 +28,66 @@ namespace BonifQ.Tests
         [Fact]
         public async Task GetPhotoById_WhenPhotoIsUpdated_Success()
         {
-            //Photo repositoryNock = PhotosRepositoryMock.GetUpdatePhotoObjectMock(); // criando objeto de mock
+            Photo repositoryMock = PhotosRepositoryMock.GetUpdatePhotoObjectMock(); 
 
-            //_photosRepository.Setup(x => x.GetPhotoByIdAsync(It.IsAny<int>()))
-            //    .ReturnsAsync(repositoryNock); // configurando o repositório para retornar o nosso moc
-            ////Photo response = await _photoService.GetPhotoById(repositoryNock.Id);   
+            _photosRepository.Setup(x => x.GetPhotoByIdAsync(It.IsAny<int>()))
+                .ReturnsAsync(repositoryMock); 
+            PhotoResponse response = await _photoService.GetPhotoById(repositoryMock.Id);
 
-            //Assert.Equal(repositoryNock.Id, response.Id);           
-            //Assert.NotNull(response);           
+            Assert.Equal(repositoryMock.Id, response.Id);
+            Assert.NotNull(response);
         }
 
         [Fact]
         public async Task GetPhotoById_WhenPhotoIsNotUpdated_Success()
         {
-            //Photo repositoryNock = PhotosRepositoryMock.GetNotUpdatePhotoObjectMock(); // criando objeto de mock
+            Photo repositoryMock = PhotosRepositoryMock.GetNotUpdatePhotoObjectMock(); 
 
-            //_photosRepository.Setup(x => x.GetPhotoByIdAsync(It.IsAny<int>()))
-            //    .ReturnsAsync(repositoryNock); // configurando o repositório para retornar o nosso mock
+            _photosRepository.Setup(x => x.GetPhotoByIdAsync(It.IsAny<int>()))
+                .ReturnsAsync(repositoryMock); 
 
-            //PhotoApiResponse httpRequestMock = PhotosRepositoryMock.GetPhotoResponseObjectMock();
+            PhotoApiResponse httpRequestMock = PhotosRepositoryMock.GetPhotoResponseObjectMock();
 
-            //_httpRequest.Setup(x => x.GetPhotoById(It.IsAny<int>()))
-            //    .ReturnsAsync(httpRequestMock); // configurando o repositório para retornar o nosso mock
+            _httpRequest.Setup(x => x.GetPhotoById(It.IsAny<int>()))
+                .ReturnsAsync(httpRequestMock); 
 
-            //Photo response = await _photoService.GetPhotoById(repositoryNock.Id);
+            PhotoResponse response = await _photoService.GetPhotoById(repositoryMock.Id);
 
-            //Assert.Equal(httpRequestMock.Id, response.Id);
-            //Assert.Equal(httpRequestMock.Title, response.Title);
-            //Assert.Equal(httpRequestMock.ThumbnailUrl, response.ThumbnailUrl);
-            //Assert.Equal(httpRequestMock.AlbumId, response.AlbumId);
-            //Assert.Equal(httpRequestMock.Url, response.Url);
+            Assert.Equal(httpRequestMock.Id, response.Id);
+            Assert.Equal(httpRequestMock.Title, response.Title);
+            Assert.Equal(httpRequestMock.ThumbnailUrl, response.ThumbnailUrl);
+            Assert.Equal(httpRequestMock.AlbumId, response.AlbumId);
+            Assert.Equal(httpRequestMock.Url, response.Url);
 
-            //_photosRepository.Verify(x => x.CommitChangesAsync(), Times.Once);
+            _photosRepository.Verify(x => x.CommitChangesAsync(), Times.Once);
+        }
+
+        [Fact]
+        public async Task GetPhotoById_WhenPhotoNotFound_Error()
+        {
+            Task act() => _photoService.GetPhotoById(It.IsAny<int>());
+
+            NotFoundException exception = await Assert.ThrowsAsync<NotFoundException>(act);
+        }
+
+        [Fact]
+        public async Task GetPhotoById_WhenPhotoNotFoundAndApiReturnsOk_Success()
+        {
+            PhotoApiResponse httpRequestMock = PhotosRepositoryMock.GetPhotoResponseObjectMock();
+
+            _httpRequest.Setup(x => x.GetPhotoById(It.IsAny<int>()))
+                .ReturnsAsync(httpRequestMock);
+
+            PhotoResponse response = await _photoService.GetPhotoById(It.IsAny<int>());
+
+            Assert.Equal(httpRequestMock.Id, response.Id);
+            Assert.Equal(httpRequestMock.Title, response.Title);
+            Assert.Equal(httpRequestMock.ThumbnailUrl, response.ThumbnailUrl);
+            Assert.Equal(httpRequestMock.AlbumId, response.AlbumId);
+            Assert.Equal(httpRequestMock.Url, response.Url);
+
+            _photosRepository.Verify(x => x.InsertPhotoAsync(It.IsAny<Photo>()), Times.Once);
+            _photosRepository.Verify(x => x.CommitChangesAsync(), Times.Once);
         }
     }
 }

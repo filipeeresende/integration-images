@@ -34,7 +34,7 @@ namespace BonifiQ.Infrastructure.CrossTalk
             return photo;
         }
 
-        public async Task<List<PhotoApiResponse>> GetAllPhotosByAlbumId(int id)
+        public async Task<IList<PhotoApiResponse>> GetAllPhotosByAlbumId(int id)
         {
             List<PhotoApiResponse> photo = null;
 

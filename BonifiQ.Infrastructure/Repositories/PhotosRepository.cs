@@ -13,7 +13,7 @@ namespace BonifiQ.Infrastructure.Repositories
             _context = context;
         }
 
-        public async Task<List<Photo>> GetAlbumPhotosByAlbumIdAsync(int id)
+        public async Task<IList<Photo>> GetAlbumPhotosByAlbumIdAsync(int id)
         {
             return await (from P in _context.Photos
                           where P.AlbumId == id

@@ -8,6 +8,6 @@ namespace BonifiQ.Domain.Interfaces.Repositories
         Task<Photo> GetPhotoByIdAsync(int id);
         Task CommitChangesAsync();
         Task InsertPhotoAsync(Photo newPhoto);
-        Task<List<Photo>> GetAlbumPhotosByAlbumIdAsync(int id);
+        Task<IList<Photo>> GetAlbumPhotosByAlbumIdAsync(int id);
     }
 }
