@@ -39,7 +39,7 @@ namespace BonifiQ.Domain.Services
             PhotoApiResponse apiPhoto = await _httpRequest.GetPhotoById(id);
 
             if (apiPhoto == null)
-                throw new NotFoundException("Esta imagem não foi encontrada");
+                throw new NotFoundException("This image was not found");
 
                 Photo newPhoto = PhotoUtils.AddNewPhoto(apiPhoto);
 

@@ -42,7 +42,7 @@ namespace BonifiQ.Domain.Services
                     .GetAllPhotosByAlbumId(id);
 
                 if (!updatedPhotos.Any())
-                    throw new NotFoundException("Este album não foi encontrado");
+                    throw new NotFoundException("This Album was not found");
 
                 foreach (PhotoApiResponse photo in updatedPhotos)
                 {
